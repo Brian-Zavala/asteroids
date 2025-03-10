@@ -16,10 +16,9 @@ def main():
 
     clock = pygame.time.Clock()
     dt = 0
-    while True:
+    running = True
+    while running:
         
-        
-
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
@@ -31,6 +30,8 @@ def main():
 
         # For demonstration, print the resource usage to the console
         print(f"CPU: {cpu_usage}%  Memory: {mem_usage}%  Disk: {disk_usage}%")
+
+        player.update(dt)
 
         screen.fill((0, 0, 0))
         player.draw(screen)
