@@ -12,3 +12,4 @@ PLAYER_TURN_SPEED = 300  # degrees per second
 PLAYER_SPEED = 200  # forward speed
 
 SHOT_RADIUS = 5
+PLAYER_SHOOT_SPEED = 500
