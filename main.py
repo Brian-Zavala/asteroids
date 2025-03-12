@@ -1,5 +1,7 @@
 import pygame
 from constants import *
+from asteroid import *
+from asteroidfield import *
 import resource_monitor
 import player as player_module
 
@@ -14,15 +16,16 @@ def main():
     y = SCREEN_HEIGHT / 2
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
-
+    asteroids = pygame.sprite.Group()
+    Asteroid.containers = (asteroids, updatable,drawable)
+    AsteroidField.containers = (updatable,)
     player_module.Player.containers = (updatable, drawable)
 
     player = player_module.Player(x, y)
+    asteroid_field= AsteroidField()
     clock = pygame.time.Clock()
     dt = 0
 
-    asteroids = pygame.sprite.Group()
-    Asteroid.containers = (asteroids, updatable,drawable)
 
     running = True
     while running:
