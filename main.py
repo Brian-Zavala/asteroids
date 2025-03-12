@@ -17,15 +17,14 @@ def main():
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
-    Asteroid.containers = (asteroids, updatable,drawable)
+    Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = (updatable,)
     player_module.Player.containers = (updatable, drawable)
 
     player = player_module.Player(x, y)
-    asteroid_field= AsteroidField()
+    asteroid_field = AsteroidField()
     clock = pygame.time.Clock()
     dt = 0
-
 
     running = True
     while running:
@@ -44,6 +43,12 @@ def main():
         print(f"CPU: {cpu_usage}%  Memory: {mem_usage}%  Disk: {disk_usage}%")
 
         updatable.update(dt)
+        for asteroid in asteroids:
+            if player.collides_with(asteroid):
+                print("Game over")
+                import sys
+
+                sys.exit()
         screen.fill((0, 0, 0))
         for entity in drawable:
             entity.draw(screen)
