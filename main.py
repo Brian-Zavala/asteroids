@@ -20,6 +20,10 @@ def main():
     player = player_module.Player(x, y)
     clock = pygame.time.Clock()
     dt = 0
+
+    asteroids = pygame.sprite.Group()
+    Asteroid.containers = (asteroids, updatable,drawable)
+
     running = True
     while running:
         for event in pygame.event.get():

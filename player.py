@@ -1,5 +1,6 @@
 import pygame
 from constants import *
+from asteroid import *
 from circleshape import CircleShape
 
 class Player(CircleShape):
